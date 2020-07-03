@@ -3,3 +3,57 @@
     margin: 0;
     padding: 0;
 }
+
+.numbers-add {
+    display: flex;
+    flex-direction: row;
+    margin: 2rem;
+    padding: 0 2rem;
+    justify-content: space-between;
+}
+
+.num {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.add {
+    display: flex;
+    flex-flow: row;
+}
+
+.add-task {
+    flex: 1.5;
+}
+
+.btn {
+    flex: 0.5;
+    padding: 1rem 1.8rem;
+    color: white;
+    background-color: rgb(37, 128, 247);
+}
+
+#board-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 5rem;
+}
+
+.board {
+    flex: 1;
+    margin: 1.5rem;
+    min-height: 25rem;
+    border: none;
+    text-align: center;
+}
+
+.board-title {
+    border: none;
+    text-transform: capitalize;
+    text-align: center;
+}
+
+.board-title:focus {
+    outline: none;
+}
