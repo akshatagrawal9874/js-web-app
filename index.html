@@ -9,23 +9,31 @@
 </head>
 
 <body>
-    <div class="add-new">
+    <div class="numbers-add">
+        <div class="list-numbers">
+            Tasks To Do
+            <div class="num" id="n1">0</div>
+            Tasks In Progress
+            <div class="num" id="n2">0</div>
+            Tasks Completed
+            <div class="num" id="n3">0</div>
+        </div>
         <input type="text" class="add-task" placeholder="Add New Task">
         <div class="btn">Add</div>
     </div>
     <div id="board-container">
         <div class="board">
-            <input type="text" id="b1" class="board-title">
+            <input type="text" id="b1" class="board-title" value="TO DO">
             <div class="task" id="t1"></div>
             <div class="task" id="t2"></div>
         </div>
         <div class="board">
-            <input type="text" id="b2" class="board-title">
+            <input type="text" id="b2" class="board-title" value="IN PROGRESS">
             <div class="task" id="t3"></div>
             <div class="task" id="t4"></div>
         </div>
         <div class="board">
-            <input type="text" id="b3" class="board-title">
+            <input type="text" id="b3" class="board-title" value="COMPLETED">
             <div class="task" id="t5"></div>
             <div class="task" id="t6"></div>
         </div>
