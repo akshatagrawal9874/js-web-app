@@ -4,6 +4,10 @@
     padding: 0;
 }
 
+hr {
+    background-color: indigo;
+}
+
 .numbers-add {
     display: flex;
     flex-direction: row;
@@ -44,6 +48,7 @@
     flex: 1;
     margin: 1.5rem;
     min-height: 25rem;
+    padding: 1rem;
     border: 1px solid purple;
     text-align: center;
     transition: all 0.3s ease-in-out;
@@ -51,7 +56,7 @@
 
 .board:hover,
 .board:focus {
-    border: 3px solid purple;
+    border: 3px solid white;
     border-image: linear-gradient(to bottom, pink, purple, blue) 1 100%;
     transition: all 0.3s ease-in-out;
 }
@@ -64,4 +69,28 @@
 
 .board-title:focus {
     outline: none;
+}
+
+.dragabble {
+    cursor: move;
+    margin: 0.7rem 0;
+    padding: 0.5rem;
+    box-shadow: 0 0 4px grey;
+    display: flex;
+    flex-flow: row;
+}
+
+.dragging {
+    border: 2px solid white;
+    border-image: linear-gradient(to bottom, pink, purple, blue)1 100%;
+    opacity: 0.8;
+}
+
+.txt {
+    flex: 5;
+}
+
+.cross {
+    flex: 1;
+    color: gray;
 }

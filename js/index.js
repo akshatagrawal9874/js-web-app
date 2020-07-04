@@ -1,5 +1,4 @@
-const draggable = document.querySelectorAll(".draggable");
-const board = document.querySelectorAll(".board");
+const boards = document.querySelectorAll(".board");
 const task_text = document.getElementById("add");
 const b1 = document.getElementById("b1");
 const b2 = document.getElementById("b2");
@@ -9,6 +8,7 @@ const n1 = document.getElementById("n1");
 const n2 = document.getElementById("n2");
 const n3 = document.getElementById("n3");
 
+var num = 0;
 var num1 = 0;
 var num2 = 0;
 var num3 = 0;
@@ -21,58 +21,88 @@ function addcheck() {
     } else {
         addtask(task_text.value);
         task_text.value = "";
-        console.log("stage 1 working")
+
     }
+
 }
 
 function addtask(task) {
-    num1++;
-    n1.innerText = num1;
-    let task_box1 = document.createElement("div");
-    task_box1.setAttribute("class", "task");
-    task_box1.setAttribute("draggable", "true");
-    // task_box1.setAttribute("id", "t" + num1);
-    task_box1.innerHTML = task;
-    b1.appendChild(task_box1);
-    console.log("stage 2 working");
+    num++;
+    n1.innerText = num;
+    let box = document.createElement("div");
+    let task_box = document.createElement("div");
+    let cross = document.createElement("div");
+
+
+    box.setAttribute("class", "dragabble");
+    box.setAttribute("draggable", "true");
+    box.setAttribute("onmouseover", "forDrag(this)");
+    box.setAttribute("id", "t" + num);
+    task_box.setAttribute("class", "txt");
+    cross.setAttribute("class", "cross");
+    cross.setAttribute("id", num);
+    cross.setAttribute("onclick", "del(this)");
+
+    cross.innerHTML = "x";
+    task_box.innerHTML = task;
+
+    b1.appendChild(box);
+    box.appendChild(task_box);
+    box.appendChild(cross);
+
+}
+
+function del(task_d) {
+    let id = "t" + task_d.id;
+    let p = document.getElementById(id);
+    p.parentNode.removeChild(p);
+    num--;
 }
 
 
-draggable.forEach(draggable => {
-    draggable.addEventListener("dragstart", () => {
-        draggable.classList.add("dragging");
+function forDrag(task) {
+    task.addEventListener("dragstart", () => {
+        task.classList.add("dragging");
     })
-    draggable.addEventListener("dragend", () => {
-        draggable.classList.remove("dragging");
+    task.addEventListener("dragend", () => {
+        task.classList.remove("dragging");
     })
-})
+}
 
 
-board.forEach(board => {
+boards.forEach(board => {
     board.addEventListener("dragover", e => {
         e.preventDefault();
-        const afterEle = getDrag(board, w.clientY)
+        const afterEle = getDrag(board, e.clientY)
         const dd = document.querySelector(".dragging");
 
         if (afterEle == null) {
             board.appendChild(dd);
         } else {
             board.insertBefore(dd, afterEle);
+            console.log("insert before working")
         }
     })
 })
 
 
 function getDrag(board, y) {
-    var dragEle = board.querySelectorAll(".draggable:not(.dragging)");
-    console.log(dragEle);
+    // console.log(board, y)
+    var dragEle = getEle(board);
     return dragEle.reduce((closest, child) => {
         const box = child.getBoundingClientRect();
         const offset = box.top - box.height / 2;
+        console.log("get drag working")
         if (offset < 0 && closest.offset) {
             return { offset: offset, element: child }
         } else {
             return closest;
         }
     }, { offset: Number.NEGATIVE_INFINITY }).element;
+}
+
+
+function getEle(board) {
+    // console.log([...board.querySelectorAll(".draggable:not(.dragging)")])
+    return [...board.querySelectorAll(".draggable:not(.dragging)")]
 }
