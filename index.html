@@ -16,33 +16,33 @@
             </div>
 
             <div class="num"> Tasks In Progress :
-                <p id="n1">0</p>
+                <p id="n2">0</p>
             </div>
 
             <div class="num"> Tasks Completed :
                 <p id="n3"> 0 </p>
             </div>
         </div>
-        <div class="add"> <input type="text" class="add-task" placeholder="Add New Task">
-            <div class="btn">Add</div>
+        <div class="add"> <input type="text" class="add-task" id="add" placeholder="Add New Task" value="">
+            <div class="btn" onclick="addcheck()">Add</div>
         </div>
 
     </div>
     <div id="board-container">
-        <div class="board">
-            <input type="text" id="b1" class="board-title" value="TO DO">
-            <div class="task" id="t1"></div>
-            <div class="task" id="t2"></div>
+        <div class="board " id="b1">
+            <input type="text" class="board-title" value="TO DO">
+            <!-- <div class="task " id="t1"></div>
+            <div class="task " id="t2"></div> -->
         </div>
-        <div class="board">
-            <input type="text" id="b2" class="board-title" value="IN PROGRESS">
-            <div class="task" id="t3"></div>
-            <div class="task" id="t4"></div>
+        <div class="board " id="b2">
+            <input type="text" class="board-title" value="IN PROGRESS">
+            <div class="task " id="t3"></div>
+            <div class="task " id="t4"></div>
         </div>
-        <div class="board">
-            <input type="text" id="b3" class="board-title" value="COMPLETED">
-            <div class="task" id="t5"></div>
-            <div class="task" id="t6"></div>
+        <div class="board " id="b3">
+            <input type="text" class="board-title" value="COMPLETED">
+            <div class="task " id="t5"></div>
+            <div class="task " id="t6"></div>
         </div>
     </div>
 </body>

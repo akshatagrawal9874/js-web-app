@@ -44,8 +44,16 @@
     flex: 1;
     margin: 1.5rem;
     min-height: 25rem;
-    border: none;
+    border: 1px solid purple;
     text-align: center;
+    transition: all 0.3s ease-in-out;
+}
+
+.board:hover,
+.board:focus {
+    border: 3px solid purple;
+    border-image: linear-gradient(to bottom, pink, purple, blue) 1 100%;
+    transition: all 0.3s ease-in-out;
 }
 
 .board-title {
