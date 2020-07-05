@@ -56,7 +56,16 @@ function del(task_d) {
     let id = "t" + task_d.id;
     let p = document.getElementById(id);
     p.parentNode.removeChild(p);
-    num--;
+    let b = "b" + task_d.id;
+    switch (b) {
+        case "b1":
+            num1--;
+            break;
+        case "b2":
+            num2--;
+        case "b3":
+            num3--;
+    }
 }
 
 function boardfocus(board) {
@@ -78,12 +87,15 @@ function boardfocus(board) {
     board.addEventListener("dragleave", () => {
         console.log("stop");
     });
+    definenum();
+}
 
 
-
-
-
-
+function definenum() {
+    console.log(b1.children.length);
+    num1 = parseInt(b1.children.length) - 2;
+    num2 = parseInt(b2.children.length) - 2;
+    num3 = parseInt(b3.children.length) - 2;
 }
 
 
